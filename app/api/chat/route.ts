@@ -1,5 +1,5 @@
 import { openai } from "@ai-sdk/openai";
-import { generateText, streamText, embed } from "ai";
+import { streamText, embed } from "ai";
 import { DataAPIClient } from "@datastax/astra-db-ts";
 
 const {
@@ -7,7 +7,6 @@ const {
   ASTRA_DB_COLLECTION,
   ASTRA_DB_API_ENDPOINT,
   ASTRA_DB_APPLICATION_TOKEN,
-  OPEN_AI_KEY,
 } = process.env;
 
 // const openai = new OpenAI({
@@ -25,12 +24,12 @@ export async function POST(req: Request) {
     let docContext = "";
 
     const embedding = await embed({
-      model: openai.embedding('text-embedding-3-small'),
+      model: openai.embedding("text-embedding-3-small"),
       value: latestMessage,
       maxRetries: 0, // Disable retries
       // encoding_format: "float",
     });
-    
+
     try {
       const collection = db.collection(ASTRA_DB_COLLECTION);
       const cursor = collection.find(null, {
@@ -92,7 +91,7 @@ export async function POST(req: Request) {
 
     // });
     // console.log("Check me forst =====>", messages);
-    
+
     const result = streamText({
       model: openai("gpt-4"),
       system: `
