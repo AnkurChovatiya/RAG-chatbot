@@ -1,0 +1,37 @@
+{
+  "name": "rag-chatbot",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "ts-node ./scripts/loadDB.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^1.0.10",
+    "@datastax/astra-db-ts": "^1.5.0",
+    "@langchain/community": "^0.3.18",
+    "@langchain/core": "^0.3.23",
+    "ai": "^4.0.20",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "langchain": "^0.3.7",
+    "next": "^15.1.0",
+    "openai": "^4.76.2",
+    "puppeteer": "^23.10.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.0",
+    "typescript": "^5"
+  }
+}
